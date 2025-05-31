@@ -2,120 +2,295 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+      /* Reset styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
       img {
         border: none;
         -ms-interpolation-mode: bicubic;
-        max-width: 200px;
+        max-width: 100%;
+        height: auto;
+        display: block;
       }
+      
       body {
-        background-color: #F8F8F8;
-        font-family: "Roboto";
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         -webkit-font-smoothing: antialiased;
-        font-size: 14px;
-        line-height: 1.4;
+        font-size: 16px;
+        line-height: 1.6;
         margin: 0;
         padding: 0;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
+        min-height: 100vh;
       }
+      
       table {
         border-collapse: separate;
         mso-table-lspace: 0pt;
         mso-table-rspace: 0pt;
-        width: 100%; }
-        table td {
-          font-family: "Roboto";
-          font-size: 14px;
-          vertical-align: top; 
-          text-align: left;
+        width: 100%;
       }
+      
+      table td {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        vertical-align: top;
+        text-align: left;
+      }
+      
+      /* Typography */
+      h1, h2, h3 {
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      
       p {
-        color: #383838;
-        font-size: 14px;
-        font-weight: 300;
-        padding: 10px 20px;
+        color: #4a5568;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin: 0 0 16px 0;
+        padding: 0 24px;
       }
-      p b {
+      
+      p b, p strong {
+        color: #2d3748;
+        font-weight: 600;
         font-size: 18px;
       }
-      .body {
-        padding-top: 100px;
-        background-color: #F8F8F8;
+      
+      /* Layout */
+      .email-wrapper {
         width: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 40px 20px;
+        min-height: 100vh;
       }
-      .container {
-        display: block;
-        margin: 0 auto !important;
-        /* makes it centered */
-        max-width: 580px;
-        padding: 0 10px;
-        width: 580px;
-      }
-      .content {
-        box-sizing: border-box;
-        display: block;
+      
+      .email-container {
+        max-width: 600px;
         margin: 0 auto;
-        max-width: 580px;
-        padding: 0 10px;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
       }
-      .main {
-        background: #ffffff !important;
-        box-shadow: 0px 1px 5px rgba(196, 196, 196, 0.9);
-        border-radius: 4px;
-        width: 560px;
+      
+      /* Header */
+      .email-header {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        padding: 32px 24px;
+        text-align: center;
       }
+      
+      .logo-container {
+        margin-bottom: 16px;
+      }
+      
       .logo-img {
-        padding: 0;
-        margin: 0;
-        margin-left: 15px;
-        margin-bottom: 15px;
-      }
-      .footer {
-        clear: both;
-        text-align: center;
-        width: 100%;
-	      margin-top: 7px;
-	      margin-bottom: 40px;
-      }
-        .footer td,
-        .footer p,
-        .footer span,
-        .footer a {
-          color: #999999;
-          font-size: 12px;
-          text-align: center;
-      }
-      .btn {
-        box-sizing: border-box;
-        width: 100%;
-      }
-      .btn > tbody > tr > td {
-        padding-bottom: 15px; }
-      .btn table {
-        width: auto;
+        max-width: 180px;
+        height: auto;
         margin: 0 auto;
+        filter: brightness(0) invert(1);
       }
-      .btn table td {
-        background-color: #ffffff;
-        border-radius: 5px;
-        text-align: center;
-      }
-      .btn a {
-        border: solid 1px #3C78E0;
-        border-radius: 5px;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: inline-block;
+      
+      .header-title {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 600;
         margin: 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Content */
+      .email-content {
+        padding: 40px 24px;
+        background: #ffffff;
+      }
+      
+      .content-section {
+        margin-bottom: 32px;
+      }
+      
+      .greeting {
+        font-size: 20px;
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 24px;
+        padding: 0 0 0 0;
+      }
+      
+      /* Buttons */
+      .btn-container {
+        text-align: center;
+        margin: 32px 0;
+      }
+      
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: #ffffff !important;
         text-decoration: none;
-        background: #3C78E0;
-        font-family: "Roboto";
+        padding: 16px 32px;
+        border-radius: 8px;
         font-size: 16px;
-        padding: 7px 50px;
-        color: #FFFFFF;
-        height: 40px;
-        transition: 0.2s;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        border: none;
+        cursor: pointer;
+      }
+      
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+      }
+      
+      /* Info boxes */
+      .info-box {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      
+      .info-box p {
+        margin-bottom: 8px;
+        padding: 0;
+      }
+      
+      .warning-box {
+        background: #fef5e7;
+        border: 1px solid #f6ad55;
+        border-left: 4px solid #ed8936;
+      }
+      
+      .success-box {
+        background: #f0fff4;
+        border: 1px solid #68d391;
+        border-left: 4px solid #38a169;
+      }
+      
+      /* Footer */
+      .email-footer {
+        background: #f7fafc;
+        padding: 32px 24px;
+        text-align: center;
+        border-top: 1px solid #e2e8f0;
+      }
+      
+      .footer-content {
+        color: #718096;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      
+      .footer-content a {
+        color: #4f46e5;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .footer-content a:hover {
+        text-decoration: underline;
+      }
+      
+      .company-info {
+        margin-bottom: 16px;
+      }
+      
+      .social-links {
+        margin-top: 20px;
+      }
+      
+      .social-links a {
+        display: inline-block;
+        margin: 0 8px;
+        color: #718096;
+        text-decoration: none;
+      }
+      
+      /* Responsive design */
+      @media only screen and (max-width: 600px) {
+        .email-wrapper {
+          padding: 20px 10px;
+        }
+        
+        .email-container {
+          border-radius: 12px;
+        }
+        
+        .email-header {
+          padding: 24px 20px;
+        }
+        
+        .email-content {
+          padding: 32px 20px;
+        }
+        
+        .header-title {
+          font-size: 20px;
+        }
+        
+        .greeting {
+          font-size: 18px;
+        }
+        
+        p {
+          padding: 0 0;
+        }
+        
+        .btn {
+          padding: 14px 28px;
+          font-size: 15px;
+        }
+      }
+      
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        .email-container {
+          background: #1a202c;
+        }
+        
+        .email-content {
+          background: #1a202c;
+        }
+        
+        .greeting {
+          color: #e2e8f0;
+        }
+        
+        p {
+          color: #a0aec0;
+        }
+        
+        p b, p strong {
+          color: #e2e8f0;
+        }
+        
+        .info-box {
+          background: #2d3748;
+          border-color: #4a5568;
+        }
+        
+        .email-footer {
+          background: #2d3748;
+          border-color: #4a5568;
+        }
+        
+        .footer-content {
+          color: #a0aec0;
+        }
       }
     </style>
   </head>
