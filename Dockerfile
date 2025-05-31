@@ -41,8 +41,8 @@ USER app
 
 COPY --chown=app:app Gemfile Gemfile.lock $APP_HOME/
 
-# Install dependencies
-RUN gem update bundler
+# Install dependencies - use specific bundler version from Gemfile.lock
+RUN gem install bundler:2.1.4
 RUN bundle install --jobs=$(nproc) --system --binstubs --without development test
 
 # Copy the main application.
